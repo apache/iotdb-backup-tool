@@ -16,6 +16,9 @@
 # specific language governing permissions and limitations
 # under the License.
 #
+notifications:
+  issues:       reviews@iotdb.apache.org
+  pullrequests: reviews@iotdb.apache.org
 
 github:
   description: "Apache IoTDB Backup Tool"
