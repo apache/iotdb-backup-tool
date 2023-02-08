@@ -97,12 +97,12 @@ Scenario description:
   1. root.ln.company1
   2. root.ln.company2
 - Timeseries:  
-  1.root.ln.company1.diggingMachine.d1.position
-  2.root.ln.company1.diggingMachine.d1.weight
-  3.root.ln.company1.diggingMachine.d2.position
-  4.root.ln.company1.diggingMachine.d2.weight
-  5.root.ln.company2.taxiFleet.team1.mileage
-  6.root.ln.company2.taxiFleet.team1.oilConsumption
+  1.root.ln.company1.diggingMachine.d1.position  
+  2.root.ln.company1.diggingMachine.d1.weight  
+  3.root.ln.company1.diggingMachine.d2.position  
+  4.root.ln.company1.diggingMachine.d2.weight  
+  5.root.ln.company2.taxiFleet.team1.mileage  
+  6.root.ln.company2.taxiFleet.team1.oilConsumption  
   
  > There are two excavators d1 and d2 under the storage group root.ln.company1
  > There is a taxi fleet team1 under the storage group root.ln.company2
