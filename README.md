@@ -63,7 +63,7 @@ The integration tests need a real iotdbserver，you can config the server in "te
   2. Unviewable export files, export files in compressed format, take up less disk space, suitable for some backup work; now supported compression formats TSFILE、SNAPPY, GZIP, etc.  
 
 ## Export
-Export command tool: backup-export.bat/backup-export.sh
+Export command tool: data-export.bat/data-export.sh
 ````
  -h  // iotdb host address
  -p  // port
@@ -80,7 +80,7 @@ Export command tool: backup-export.bat/backup-export.sh
 ````
 
 ## Import
-Import command tool: backup-import.bat/backup-import.sh
+Import command tool: data-import.bat/data-import.sh
 ````
  -h  // iotdb host address
  -p  // port
@@ -109,7 +109,7 @@ Scenario description:
  ---
  > Export the d1 device, export the file to d:/company1/machine, select the second file strategy (extra file), need to generate a time series structure, the file format is gzip
  ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.diggingMachine.d1 -sy true -se true -c gzip
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.diggingMachine.d1 -sy true -se true -c gzip
  ````
 > Export results:
 > TIMESERIES_STRUCTURE.STRUCTURE records the time series structure
@@ -119,7 +119,7 @@ backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine
 --- 
 > Export all devices under company1, export the file to d:/company1/machine, select the first file strategy, do not need to generate a time series structure, the file format is csv
 ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.** -sy false -se false -c csv
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.** -sy false -se false -c csv
 ````
 > Export results:
 > d2.csv
@@ -128,7 +128,7 @@ backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine
 --- 
 > Export all devices under root.ln, export files to d:/all/devices, select the first file strategy, need to generate time series structure, file format csv
 ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -i root.ln.** -sy false -se true -c csv -w "time > 1651036025230"
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -i root.ln.** -sy false -se true -c csv -w "time > 1651036025230"
 ````
 > Export results:
 > TIMESERIES_STRUCTURE.STRUCTURE records the time series structure
@@ -139,11 +139,11 @@ backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -i r
 --- 
 > Import data, specify the folder d:/all/devices to export data, need to import time series, file format csv
 ````
-backup-import.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -se true -c csv
+data-import.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -se true -c csv
 ````
 --- 
 ps: export tsfile
 ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\tsfileexport\\A106 -i  root.yyy.** -se false -c tsfile -vn 3 -pi 604800
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\tsfileexport\\A106 -i  root.yyy.** -se false -c tsfile -vn 3 -pi 604800
 ````
 if you want to import tsfile,please use [Load External TsFile Tool](https://iotdb.apache.org/zh/UserGuide/V0.13.x/Write-And-Delete-Data/Load-External-Tsfile.html).

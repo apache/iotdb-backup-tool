@@ -64,7 +64,7 @@ ps: 使用 '-DskipTests' 来跳过测试用例
   2. 不可以查看的导出文件，导出压缩格式的文件，占用磁盘空间比较小，适合做一些备份工作；现在支持的压缩格式TSFILE、SNAPPY、GZIP等
 
 ## 导出
-导出命令工具：backup-export.bat/backup-export.sh
+导出命令工具：data-export.bat/data-export.sh
 ````
  -h  // iotdb host address
  -p  // port
@@ -81,7 +81,7 @@ ps: 使用 '-DskipTests' 来跳过测试用例
 ````
 
 ## 导入
-导入命令工具: backup-import.bat/backup-import.sh
+导入命令工具: data-import.bat/data-import.sh
 ````
  -h  // iotdb host address
  -p  // port
@@ -110,7 +110,7 @@ ps: 使用 '-DskipTests' 来跳过测试用例
  --- 
  > 导出d1设备，导出文件到d:/company1/machine，文件策略选择第二种(额外文件)，需要生成时间序列结构，文件格式gzip
  ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.diggingMachine.d1 -sy true -se true -c gzip
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.diggingMachine.d1 -sy true -se true -c gzip
  ````
 > 导出结果：  
 > TIMESERIES_STRUCTURE.STRUCTURE 记录时间序列结构  
@@ -119,7 +119,7 @@ backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine
 --- 
 > 导出company1下所有设备，导出文件到d:/company1/machine，文件策略选择第一种，不需要生成时间序列结构，文件格式csv
 ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.** -sy false -se false -c csv
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine -i root.ln.company1.** -sy false -se false -c csv
 ````
 > 导出结果：  
 > d2.csv   
@@ -127,7 +127,7 @@ backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\company1\\machine
 --- 
 > 导出root.ln下所有设备，导出文件到d:/all/devices，文件策略选择第一种，需要生成时间序列结构，文件格式csv
 ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -i root.ln.** -sy false -se true -c csv -w "time > 1651036025230"
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -i root.ln.** -sy false -se true -c csv -w "time > 1651036025230"
 ````
 > 导出结果：  
 > TIMESERIES_STRUCTURE.STRUCTURE 记录时间序列结构   
@@ -137,11 +137,11 @@ backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -i r
 --- 
 > 导入数据，指定导出数据的文件夹d:/all/devices，需要导入时间序列，文件格式csv
 ````
-backup-import.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -se true -c csv
+data-import.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\all\\devices -se true -c csv
 ````
 --- 
 ps: 导出 tsfile
 ````
-backup-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\tsfileexport\\A106 -i  root.yyy.** -se false -c tsfile -vn 3 -pi 604800
+data-export.bat -h 127.0.0.1 -p 6667 -u root -pw root -f d:\\tsfileexport\\A106 -i  root.yyy.** -se false -c tsfile -vn 3 -pi 604800
 ````
 如果你想导入tsfile文件,请使用 [Load External TsFile Tool工具](https://iotdb.apache.org/zh/UserGuide/V0.13.x/Write-And-Delete-Data/Load-External-Tsfile.html)。
